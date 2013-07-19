@@ -1,13 +1,13 @@
 package test;
 
-import org.sms.models.Post;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.sms.models.Post;
+import org.sms.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.sms.repository.PostRepository;
 
 import java.util.Date;
 
@@ -16,7 +16,7 @@ import java.util.Date;
 public class PostRepositoryTest {
 
     @Autowired
-    PostRepository postRepository;
+    private PostRepository postRepository;
 
     @Test
     public void test() {
@@ -27,6 +27,6 @@ public class PostRepositoryTest {
         postRepository.save(post);
         Post post1 = postRepository.findOne(post.getPostId());
         Assert.assertNotNull(post1);
-        System.out.println(post1.getTitle());
+        System.out.println("-------------> " + post1.getTitle());
     }
 }
